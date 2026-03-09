@@ -1,0 +1,32 @@
+--- RESTAURANT RECEIPT ---
+Receipt ID: 1
+Time: 2026-03-10 01:15:53
+--------------------------
+Dinners: Dinner
+Dessert: Dessert
+Drinks:  Drink
+--------------------------
+TOTAL:  M355.00
+CASH:   M400.00
+CHANGE: M45.00
+--------------------------
+Thank you for dining with us!
+
+
+
+
+
+
+--- RESTAURANT RECEIPT ---
+Receipt ID: 2
+Time: 2026-03-10 01:35:29
+--------------------------
+Dinners: Dinner
+Dessert: Dessert
+Drinks:  Drink
+--------------------------
+TOTAL:  M165.00
+CASH:   M200.00
+CHANGE: M35.00
+--------------------------
+Thank you for dining with us!

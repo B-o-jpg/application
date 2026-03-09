@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #FDF8F5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.POSController">
+
+    <!-- Header -->
+    <VBox layoutX="0.0" layoutY="0.0" prefHeight="80.0" prefWidth="1200.0" spacing="10.0" style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-width: 0 0 1 0;">
+        <padding>
+            <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+        </padding>
+        <Label text="Terminal 01 - Restaurant POS System" textFill="#d4724a">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+        <Label fx:id="timeLabel" text="2026-03-08 17:00:00" textFill="#666666">
+            <font>
+                <Font size="12.0" />
+            </font>
+        </Label>
+    </VBox>
+
+    <!-- Main Content -->
+    <HBox layoutX="0.0" layoutY="80.0" prefHeight="720.0" prefWidth="1200.0" spacing="20.0">
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        </padding>
+
+        <!-- Left Column: Menu Selection -->
+        <VBox prefHeight="700.0" prefWidth="800.0" spacing="20.0">
+
+            <!-- Dinner Section -->
+            <VBox prefHeight="200.0" prefWidth="800.0" spacing="10.0" style="-fx-border-color: #e0b5a0; -fx-border-radius: 10; -fx-background-color: white; -fx-padding: 15;">
+                <Label text="DINNER SELECTION (Multiple Selection)" textFill="#d4724a">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <HBox spacing="10.0">
+                    <CheckBox fx:id="steak" mnemonicParsing="false" text="Steak (M150)" />
+                    <CheckBox fx:id="roastedChicken" mnemonicParsing="false" text="Roasted Chicken (M120)" />
+                    <CheckBox fx:id="creamyPasta" mnemonicParsing="false" text="Creamy Pasta (M95)" />
+                </HBox>
+                <HBox spacing="10.0">
+                    <CheckBox fx:id="lambChops" mnemonicParsing="false" text="Lamb Chops (M180)" />
+                    <CheckBox fx:id="grilledFish" mnemonicParsing="false" text="Grilled Fish (M140)" />
+                    <CheckBox fx:id="beefBurger" mnemonicParsing="false" text="Double Beef Burger (M110)" />
+                </HBox>
+            </VBox>
+
+            <!-- Dessert & Drink -->
+            <HBox spacing="20.0">
+                <!-- Dessert -->
+                <VBox prefHeight="200.0" prefWidth="350.0" spacing="10.0" style="-fx-border-color: #e0b5a0; -fx-border-radius: 10; -fx-background-color: white; -fx-padding: 15;">
+                    <Label text="DESSERT (Single Selection)" textFill="#d4724a">
+                        <font>
+                            <Font name="System Bold" size="14.0" />
+                        </font>
+                    </Label>
+                    <RadioButton mnemonicParsing="false" text="Chocolate Cake (M45)" toggleGroup="$dessertGroup" fx:id="chocolateCake" />
+                    <RadioButton mnemonicParsing="false" text="Vanilla Ice Cream (M35)" toggleGroup="$dessertGroup" fx:id="vanillaIceCream" />
+                    <RadioButton mnemonicParsing="false" text="Apple Pie (M40)" toggleGroup="$dessertGroup" fx:id="applePie" />
+                    <RadioButton mnemonicParsing="false" text="Malva Pudding (M50)" toggleGroup="$dessertGroup" fx:id="malvaPudding" />
+                    <ToggleGroup fx:id="dessertGroup" />
+                </VBox>
+
+                <!-- Drinks -->
+                <VBox prefHeight="200.0" prefWidth="350.0" spacing="10.0" style="-fx-border-color: #e0b5a0; -fx-border-radius: 10; -fx-background-color: white; -fx-padding: 15;">
+                    <Label text="BEVERAGES" textFill="#d4724a">
+                        <font>
+                            <Font name="System Bold" size="14.0" />
+                        </font>
+                    </Label>
+                    <ComboBox fx:id="drinkCombo" prefHeight="35.0" prefWidth="300.0" promptText="Select a drink..." />
+                </VBox>
+            </HBox>
+        </VBox>
+
+        <!-- Right Column: Calculations & Actions -->
+        <VBox prefHeight="700.0" prefWidth="350.0" spacing="15.0" style="-fx-border-color: #333; -fx-border-radius: 10; -fx-background-color: #333; -fx-padding: 20;">
+
+            <!-- Order Summary -->
+            <Label text="CURRENT ORDER" textFill="white">
+                <font>
+                    <Font name="System Bold" size="16.0" />
+                </font>
+            </Label>
+
+            <VBox spacing="10.0" style="-fx-border-color: #555; -fx-border-radius: 5; -fx-padding: 10;">
+                <HBox alignment="CENTER_RIGHT" prefHeight="30.0" spacing="10.0">
+                    <Label text="SUBTOTAL:" textFill="#999999">
+                        <font>
+                            <Font size="11.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="totalLabel" text="M0.00" textFill="white">
+                        <font>
+                            <Font name="System Bold" size="14.0" />
+                        </font>
+                    </Label>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" prefHeight="30.0" spacing="10.0">
+                    <Label text="TAX (INC.):" textFill="#999999">
+                        <font>
+                            <Font size="11.0" />
+                        </font>
+                    </Label>
+                    <Label text="M0.00" textFill="white">
+                        <font>
+                            <Font name="System Bold" size="14.0" />
+                        </font>
+                    </Label>
+                </HBox>
+            </VBox>
+
+            <!-- Total Amount -->
+            <VBox alignment="CENTER" prefHeight="80.0" spacing="5.0" style="-fx-border-color: #d4724a; -fx-border-radius: 5; -fx-background-color: #2a2a2a; -fx-padding: 10;">
+                <Label text="TOTAL AMOUNT" textFill="#999999">
+                    <font>
+                        <Font size="11.0" />
+                    </font>
+                </Label>
+                <Label fx:id="totalLabel" text="M0.00" textFill="#d4724a">
+                    <font>
+                        <Font name="System Bold" size="36.0" />
+                    </font>
+                </Label>
+            </VBox>
+
+            <!-- Payment Section -->
+            <VBox spacing="8.0" style="-fx-border-color: #555; -fx-border-radius: 5; -fx-padding: 10; -fx-background-color: #2a2a2a;">
+                <Label text="AMOUNT TENDERED (MALOTI)" textFill="#999999">
+                    <font>
+                        <Font size="11.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="cashPaidField" prefHeight="40.0" promptText="0.00" style="-fx-font-size: 16; -fx-padding: 8;" />
+
+                <Label text="CHANGE DUE" textFill="#999999">
+                    <font>
+                        <Font size="11.0" />
+                    </font>
+                </Label>
+                <Label fx:id="changeLabel" text="M0.00" textFill="#228B22">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+            </VBox>
+
+            <!-- Error/Status Label -->
+            <Label fx:id="errorLabel" prefHeight="30.0" text="" textFill="white" wrapText="true">
+                <font>
+                    <Font size="11.0" />
+                </font>
+            </Label>
+
+            <!-- Action Buttons -->
+            <VBox spacing="10.0">
+                <Button fx:id="saveButton" mnemonicParsing="false" onAction="#handleSave" prefHeight="45.0" prefWidth="300.0" style="-fx-font-size: 13; -fx-padding: 10; -fx-background-color: #d4724a; -fx-text-fill: white; -fx-border-radius: 5; -fx-font-weight: bold;" text="SAVE RECEIPT" />
+                <HBox spacing="10.0">
+                    <Button fx:id="resetButton" mnemonicParsing="false" onAction="#handleReset" prefHeight="40.0" prefWidth="145.0" style="-fx-font-size: 12; -fx-padding: 8; -fx-background-color: #666; -fx-text-fill: white; -fx-border-radius: 5;" text="RESET" />
+                    <Button fx:id="exitButton" mnemonicParsing="false" onAction="#handleExit" prefHeight="40.0" prefWidth="145.0" style="-fx-font-size: 12; -fx-padding: 8; -fx-background-color: #999; -fx-text-fill: white; -fx-border-radius: 5;" text="EXIT" />
+                </HBox>
+            </VBox>
+        </VBox>
+    </HBox>
+</AnchorPane>
