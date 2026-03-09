@@ -1,8 +1,14 @@
 module com.example.application {
+
     requires javafx.controls;
     requires javafx.fxml;
 
+    exports application;
+    exports application.controllers;
+    exports application.models;
+    exports application.utils;
 
-    opens com.example.application to javafx.fxml;
-    exports com.example.application;
+    opens application to javafx.graphics;
+    opens application.controllers to javafx.fxml;
+
 }
